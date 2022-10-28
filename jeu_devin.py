@@ -78,17 +78,17 @@ def machine_devine():
        # Aider la machine à trouver m
        # Fournir des indices après chaque mauvaise réponse
         proposition = str(input("Trop (g)rand, trop (p)etit ou (t)rouvé "))
-        if proposition == "g":
+        if proposition == "g" or proposition == "G":
             b = m
             n_essai += 1  # Comptabiliser le nombre d'essais
             m = (a + b)/2
             print(f"Proposition {n_essai} :", int(m))
-        elif proposition == "p":
+        elif proposition == "p" or proposition == "P":
             a = m
             n_essai += 1
             m = (a + b)/2
             print(f"Proposition {n_essai} :", int(m))
-        elif proposition == "t":
+        elif proposition == "t" or proposition == "T":
             # Machine a donné la bonne réponse
             print(f"J'ai trouvé en {n_essai} essai(s)")
             break
