@@ -5,32 +5,35 @@ import random
 def selectionne_jeu():
     '''Faire choisir un jeu'''
 
-# Faire sélectionner 1 jeu ou l'arrêt du programme
+    # Faire sélectionner 1 jeu ou l'arrêt du programme
     print("1- L'ordinateur choisit un nombre")
     print("2- Vous choisissez un nombre et l'ordinateur le devine")
     print("0- Quitter le programme")
 
     choice = int(input("Votre choix : "))
-# Renvoyer vers la bonne fonction
+
+    # Renvoyer vers la bonne fonction
     if choice == 1:
         je_devine()
     elif choice == 2:
         machine_devine()
     elif choice == 0:
         stop()
+    else:
+        selectionne_jeu()
 
 
 def je_devine():
     '''Faire deviner le nombre choisi par la machine entre 0 et 1000'''
 
-    # Faire choisir nombre à la machine
+    # Choisir nombre par la machine
     nombre = random.randint(1, 999)
 
     # Choisir n
     print("J'ai choisi un nombre compris entre 1 et 1000.")
 
-    # Comptabiliser le nombre d'essai
-    n_essai = 1  # Initialiser la variable n_essai
+    # Initialiser la variable n_essai
+    n_essai = 1
     n = int(input(f"Proposition {n_essai} : "))
 
     # Déterminer où en est l'utilisateur tant que n est différent de nombre
@@ -54,6 +57,7 @@ def machine_devine():
     ''' Faire deviner un nombre entre 0-1000 à la machine'''
 
     # Faire demander un nombre à la machine entre 0 et 1000
+    # initialiser les bornes: a et b
     a = 0
     b = 1000
 
@@ -63,8 +67,8 @@ def machine_devine():
 
     # Fournir des indices à chaque réponse
     while response != "o":
-        response = str(
-            input("Avez-vous choisi un nombre compris entre 1 et 999 (o/n)? "))
+        response = input(
+            "Avez-vous choisi un nombre compris entre 1 et 999 (o/n)? ")
         if response == "n":
             input("J'attends...")
         elif response == "o":  # Faire faire une recherche par dichotomie
@@ -74,7 +78,7 @@ def machine_devine():
             response = str(
                 input("Avez-vous choisi un nombre compris entre 1 et 999 (o/n)? "))
 
-    for i in range(a, b):
+    while proposition != m:
        # Aider la machine à trouver m
        # Fournir des indices après chaque mauvaise réponse
         proposition = str(input("Trop (g)rand, trop (p)etit ou (t)rouvé "))
